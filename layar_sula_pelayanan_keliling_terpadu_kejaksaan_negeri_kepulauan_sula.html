@@ -1,0 +1,2019 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAYAR SULA jarak Jauh & Terpadu Kejaksaan Negeri Kepulauan Sula</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        kejaksaan: {
+                            green: '#0B4F32',
+                            darkGreen: '#073622',
+                            lightGreen: '#E8F3EE',
+                            gold: '#D4AF37',
+                            goldHover: '#B89428',
+                            marine: '#0A3656',
+                            marineLight: '#124D78',
+                            ocean: '#F0F7FA'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Hero background menggunakan foto kantor Kejari Kepulauan Sula + overlay gradasi khas Adhyaksa */
+        .hero-with-photo {
+            background-color: #073622;
+            background-image: 
+                linear-gradient(125deg, rgba(7, 54, 34, 0.55) 0%, rgba(11, 79, 50, 0.42) 50%, rgba(10, 54, 86, 0.48) 100%),
+                url('WhatsApp Image 2026-10-06 at 14.07.36.jpeg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+        /* Subtle watermarks & floating animation */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+        }
+        .animate-float {
+            animation: floatSlow 4s ease-in-out infinite;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0B4F32;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0A3656;
+        }
+
+        /* ===== Validasi formulir ===== */
+        .is-invalid { border-color: #e11d48 !important; box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.12); }
+        .is-valid { border-color: #059669 !important; }
+        label.is-invalid { background-color: #fff1f2; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-kejaksaan-gold selection:text-kejaksaan-darkGreen">
+
+    <!-- Top Identity Ribbon -->
+    <div class="bg-kejaksaan-marine text-white text-xs py-2 px-4 border-b border-white/10">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1 text-center sm:text-left">
+            <div class="flex items-center gap-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-kejaksaan-gold animate-pulse"></span>
+                <span class="font-medium tracking-wide">KEJAKSAAN REPUBLIK INDONESIA • KEJAKSAAN TINGGI MALUKU UTARA</span>
+            </div>
+            <div class="text-slate-200 flex items-center gap-3">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5 inline text-kejaksaan-gold mr-1"></i>Jl. Jendral Besar Soeharto, Desa Waihama, Kec. Sanana Kab. Kepulauan Sula</span>
+                <span class="hidden md:inline">|</span>
+                <span class="hidden md:inline font-semibold text-kejaksaan-gold">Zona Integritas WBK / WBBM</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navbar -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo Brand + Logo Kejaksaan RI -->
+                <a href="#beranda" class="flex items-center gap-3 group">
+                    <!-- Logo Resmi Kejaksaan RI -->
+                    <div class="w-12 h-12 rounded-xl bg-white p-1 flex items-center justify-center shadow-md border border-kejaksaan-gold/60 group-hover:scale-105 transition-transform shrink-0">
+                        <img src="webphada.jpeg" 
+                             onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Logo_Kejaksaan_Agung_Republik_Indonesia.png/480px-Logo_Kejaksaan_Agung_Republik_Indonesia.png';"
+                             alt="Logo Kejaksaan Republik Indonesia" 
+                             class="w-full h-full object-contain">
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="font-display font-extrabold text-xl tracking-tight text-kejaksaan-green">LAYAR <span class="text-kejaksaan-marine">SULA</span></span>
+                            <span class="px-1.5 py-0.5 text-[10px] font-bold uppercase bg-kejaksaan-gold/20 text-kejaksaan-darkGreen rounded border border-kejaksaan-gold/40">PTSP+</span>
+                        </div>
+                        <p class="text-[11px] font-semibold text-slate-600 leading-tight">Kejaksaan Negeri Kepulauan Sula</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700">
+                    <a href="#beranda" class="hover:text-kejaksaan-green transition-colors">Beranda</a>
+                    <a href="#slogan-sula" class="hover:text-kejaksaan-green transition-colors">Nilai SULA</a>
+                    <a href="#layanan" class="hover:text-kejaksaan-green transition-colors">Layanan Utama</a>
+                    <a href="#lacak" class="hover:text-kejaksaan-green transition-colors flex items-center gap-1.5">
+                        Lacak Status Permohonan
+                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    </a>
+                    <a href="#jadwal" class="hover:text-kejaksaan-green transition-colors">Jadwal Jemput Bola</a>
+                    <a href="#kontak" class="hover:text-kejaksaan-green transition-colors">Kontak & Info</a>
+                </nav>
+
+                <!-- Quick WhatsApp PTSP & Mobile Menu Button -->
+                <div class="flex items-center gap-2.5">
+                    <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-100" aria-label="Menu Navigasi">
+                        <i data-lucide="menu" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-slate-200 px-4 pt-3 pb-5 space-y-2 shadow-lg">
+            <a href="#beranda" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg font-semibold text-slate-700 hover:bg-kejaksaan-lightGreen hover:text-kejaksaan-green">Beranda</a>
+            <a href="#slogan-sula" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg font-semibold text-slate-700 hover:bg-kejaksaan-lightGreen hover:text-kejaksaan-green">Slogan & Tata Nilai SULA</a>
+            <a href="#layanan" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg font-semibold text-slate-700 hover:bg-kejaksaan-lightGreen hover:text-kejaksaan-green">Layanan Utama (6 Inovasi)</a>
+            <a href="#lacak" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg font-semibold text-slate-700 hover:bg-kejaksaan-lightGreen hover:text-kejaksaan-green">Lacak Status Pengajuan</a>
+            <a href="#jadwal" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg font-semibold text-slate-700 hover:bg-kejaksaan-lightGreen hover:text-kejaksaan-green">Jadwal Jemput Bola Kepulauan</a>
+            <a href="#kontak" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg font-semibold text-slate-700 hover:bg-kejaksaan-lightGreen hover:text-kejaksaan-green">Kontak & Zona Integritas</a>
+        </div>
+    </header>
+
+    <!-- 1. HERO SECTION (DENGAN FOTO GEDUNG KEJARI KEPULAUAN SULA SEBAGAI BACKGROUND UTAMA) -->
+    <section id="beranda" class="hero-with-photo text-white relative overflow-hidden pt-12 pb-24 lg:pt-20 lg:pb-32">
+        <!-- Fallback Background Image Element -->
+        <img src="WhatsApp Image 2026-10-06 at 14.07.36.jpeg" 
+             alt="Gedung Kantor Kejaksaan Negeri Kepulauan Sula" 
+             onerror="this.parentElement.style.backgroundImage='linear-gradient(135deg, #073622 0%, #0B4F32 55%, #0A3656 100%)'"
+             class="hidden">
+
+        <!-- Subtle Decorative Maritime Lines -->
+        <div class="absolute inset-0 opacity-15 pointer-events-none">
+            <svg class="w-full h-full" viewBox="0 0 1440 600" fill="none">
+                <path d="M-100 450 C 250 350, 500 550, 850 420 C 1150 310, 1350 480, 1600 400" stroke="#D4AF37" stroke-width="2" stroke-dasharray="8 8"/>
+                <path d="M-100 500 C 300 400, 550 600, 900 470 C 1200 360, 1400 530, 1600 450" stroke="#38BDF8" stroke-width="2"/>
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+                <!-- Left Column: Copy & CTAs -->
+                <div class="lg:col-span-7 space-y-6">
+                    <!-- Institutional Identity with Kejaksaan Emblem -->
+                    <div class="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-black/40 border border-kejaksaan-gold/60 backdrop-blur-md shadow-md">
+                        <img src="webphada.jpeg" 
+                             onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Logo_Kejaksaan_Agung_Republik_Indonesia.png/480px-Logo_Kejaksaan_Agung_Republik_Indonesia.png';"
+                             alt="Logo Kejaksaan RI" 
+                             class="w-9 h-9 object-contain shrink-0">
+                        <div class="text-left">
+                            <div class="text-[11px] sm:text-xs font-extrabold tracking-wider uppercase text-kejaksaan-gold">
+                                Kejaksaan Negeri Kepulauan Sula
+                            </div>
+                            <div class="text-[11px] text-slate-200 font-medium">
+                                Slogan Pelayanan: <span class="text-white font-bold">SULA</span> (Sinergi • Unggul • Loyal • Adaptif)
+                            </div>
+                        </div>
+                    </div>
+
+                    <h1 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-tight tracking-tight drop-shadow-md">
+                        LAYAR SULA: <span class="text-kejaksaan-gold">Menjangkau Pulau,</span> Mempermudah Pelayanan Hukum Masyarakat.
+                    </h1>
+
+                    <p class="text-slate-100 text-base sm:text-lg leading-relaxed max-w-2xl drop-shadow">
+                        Layanan Jarak Jauh & Terpadu <strong>Kejaksaan Negeri Kepulauan Sula</strong> (Jl. Jendral Besar Soeharto, Desa Waihama, Kec. Sanana). Menghadirkan akses pengantaran barang bukti, e-tilang, konsultasi hukum daring, hingga izin besuk tanpa perlu menempuh perjalanan laut yang mahal dari <strong>Pulau Sulabesi</strong> maupun <strong>Pulau Mangoli</strong>.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-3.5 pt-2">
+                        <a href="#layanan" class="inline-flex items-center justify-center gap-2 bg-kejaksaan-gold hover:bg-kejaksaan-goldHover text-kejaksaan-darkGreen font-bold px-6 py-3.5 rounded-xl shadow-lg shadow-black/30 transition-all hover:-translate-y-0.5">
+                            <span>Ajukan Layanan Sekarang</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#lacak" class="inline-flex items-center justify-center gap-2 bg-black/30 hover:bg-black/45 text-white border border-white/30 font-semibold px-6 py-3.5 rounded-xl backdrop-blur-md transition-all">
+                            <i data-lucide="search-check" class="w-5 h-5 text-kejaksaan-gold"></i>
+                            <span>Lacak Status Permohonan</span>
+                        </a>
+                    </div>
+
+                    <!-- Quick Stats Grid -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-6 border-t border-white/20">
+                        <div class="bg-black/25 backdrop-blur-md border border-white/15 rounded-xl p-3.5">
+                            <div class="font-display font-extrabold text-2xl text-kejaksaan-gold">12</div>
+                            <div class="text-xs text-slate-200 mt-0.5">Kecamatan Terjangkau</div>
+                        </div>
+                        <div class="bg-black/25 backdrop-blur-md border border-white/15 rounded-xl p-3.5">
+                            <div class="font-display font-extrabold text-2xl text-emerald-300">Rp 0</div>
+                            <div class="text-xs text-slate-200 mt-0.5">Biaya Layanan / Gratis</div>
+                        </div>
+                        <div class="bg-black/25 backdrop-blur-md border border-white/15 rounded-xl p-3.5">
+                            <div class="font-display font-extrabold text-2xl text-sky-300">24/7</div>
+                            <div class="text-xs text-slate-200 mt-0.5">Akses Pengaduan Online</div>
+                        </div>
+                        <div class="bg-black/25 backdrop-blur-md border border-white/15 rounded-xl p-3.5">
+                            <div class="font-display font-extrabold text-2xl text-white">&lt; 24 Jam</div>
+                            <div class="text-xs text-slate-200 mt-0.5">Respon Cepat PTSP</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Archipelago Coverage Card -->
+                <div class="lg:col-span-5">
+                    <div class="bg-slate-900/55 backdrop-blur-md border border-white/25 rounded-2xl p-6 shadow-2xl animate-float">
+                        <div class="flex items-center justify-between border-b border-white/15 pb-4 mb-4">
+                            <div>
+                                <span class="text-xs uppercase tracking-wider text-kejaksaan-gold font-bold">Jangkauan Maritim Sula</span>
+                                <h2 class="font-display font-bold text-lg text-white">Konektivitas Layanan Antar-Pulau</h2>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-xs font-semibold flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Aktif
+                            </span>
+                        </div>
+
+                        <!-- Stylized SVG Map Illustration of Sulabesi & Mangoli -->
+                        <div class="bg-kejaksaan-marine/90 rounded-xl p-2 border border-white/15 mb-4 relative overflow-hidden">
+                            <img src="data=x2Mvb0r6jmgSTQC5JOIj9rgCeVtJDs0qTzliPALasnNvZ2B4pcutBUvXB8nQA7j63jIf3g2BCMioGlLFw85Ey3y7zOl4HXyrD-_9xMls8n6ZYiztt52Uktvt4XZthMDnU1VKb1WvnUZSjcSH16vO7mqdgns1ve4NtK0ROhp733Vs45xsxb6sTPqT4CsTYZzCYDuOP9-Cm.png"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/640x320/0A3656/D4AF37?text=Peta+Kabupaten+Kepulauan+Sula';"
+                                 alt="Peta Kabupaten Kepulauan Sula - Pulau Mangoli dan Pulau Sulabesi"
+                                 class="w-full h-44 sm:h-48 object-cover rounded-lg">
+                        </div>
+
+                        <div class="space-y-2.5 text-xs sm:text-sm">
+                            <div class="flex items-center justify-between bg-white/10 px-3.5 py-2.5 rounded-lg">
+                                <span class="text-slate-100 flex items-center gap-2">
+                                    <i data-lucide="ship" class="w-4 h-4 text-sky-300"></i>
+                                    Armada Kurir Laut & Darat
+                                </span>
+                                <span class="font-semibold text-white">Penyesuaian Ongkir</span>
+                            </div>
+                            <div class="flex items-center justify-between bg-white/10 px-3.5 py-2.5 rounded-lg">
+                                <span class="text-slate-100 flex items-center gap-2">
+                                    <i data-lucide="video" class="w-4 h-4 text-kejaksaan-gold"></i>
+                                    Konsultasi Jaksa Virtual
+                                </span>
+                                <span class="font-semibold text-white">Senin – Jumat</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photo Caption Badge at bottom right -->
+            <div class="mt-8 flex justify-end">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/15 text-[11px] text-slate-200">
+                    <i data-lucide="building-2" class="w-3.5 h-3.5 text-kejaksaan-gold"></i>
+                    <span>Kantor Kejaksaan Negeri Kepulauan Sula — Sanana</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Wave Separator -->
+        <div class="absolute bottom-0 left-0 right-0 leading-none">
+            <svg class="w-full h-8 sm:h-12 text-slate-50" viewBox="0 0 1440 48" fill="currentColor" preserveAspectRatio="none">
+                <path d="M0 48H1440V18C1220 42 1040 0 720 22C400 44 210 6 0 26V48Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- 1B. SECTION KHUSUS: TATA NILAI PELAYANAN "SULA" -->
+    <section id="slogan-sula" class="py-12 lg:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-3xl border border-slate-200 shadow-lg p-6 sm:p-10 relative overflow-hidden">
+            <!-- Decorative corner accent -->
+            <div class="absolute top-0 right-0 w-40 h-40 bg-kejaksaan-gold/10 rounded-bl-full pointer-events-none"></div>
+
+            <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+                <!-- Left: Slogan Graphic Image -->
+                <div class="lg:col-span-5 flex flex-col items-center">
+                    <div id="sloganImageContainer" class="bg-slate-50 rounded-2xl p-4 sm:p-6 border border-slate-200/80 shadow-inner w-full max-w-sm">
+                        <img src="WhatsApp Image 2026-11-24 at 14.34.15 (1)_6.jpeg" 
+                             onerror="this.style.display='none'; document.getElementById('sloganFallbackGraphic').classList.remove('hidden');"
+                             alt="Slogan SULA: Sinergi, Unggul, Loyal, Adaptif - Kejaksaan Negeri Kepulauan Sula" 
+                             class="w-full h-auto rounded-xl object-contain mx-auto">
+                        
+                        <!-- Fallback Graphic Slogan SULA jika preview sandbox memblokir path lokal -->
+                        <div id="sloganFallbackGraphic" class="hidden bg-white rounded-xl p-5 border border-slate-200 shadow-sm space-y-3">
+                            <div class="text-center border-b-2 border-slate-900 pb-2">
+                                <div class="font-display font-black text-4xl tracking-tight text-slate-900 drop-shadow-sm">SULA</div>
+                                <div class="text-[10px] font-bold tracking-widest text-kejaksaan-gold uppercase mt-0.5">Kejaksaan Negeri Kepulauan Sula</div>
+                            </div>
+                            <div class="space-y-2.5 pt-1">
+                                <div class="bg-[#1E3A5F] text-white px-4 py-2.5 rounded-tl-2xl rounded-br-2xl shadow-sm flex items-center justify-between">
+                                    <span class="font-serif text-lg"><strong class="text-xl">S</strong>inergi</span>
+                                    <i data-lucide="puzzle" class="w-5 h-5 text-sky-200"></i>
+                                </div>
+                                <div class="bg-[#C8A22B] text-white px-4 py-2.5 rounded-tl-2xl rounded-br-2xl shadow-sm flex items-center justify-between ml-3">
+                                    <span class="font-serif text-lg"><strong class="text-xl">U</strong>nggul</span>
+                                    <i data-lucide="award" class="w-5 h-5 text-amber-100"></i>
+                                </div>
+                                <div class="bg-[#6B2323] text-white px-4 py-2.5 rounded-tl-2xl rounded-br-2xl shadow-sm flex items-center justify-between ml-6">
+                                    <span class="font-serif text-lg"><strong class="text-xl">L</strong>oyal</span>
+                                    <i data-lucide="shield-check" class="w-5 h-5 text-rose-200"></i>
+                                </div>
+                                <div class="bg-[#2B6237] text-white px-4 py-2.5 rounded-tl-2xl rounded-br-2xl shadow-sm flex items-center justify-between ml-9">
+                                    <span class="font-serif text-lg"><strong class="text-xl">A</strong>daptif</span>
+                                    <i data-lucide="refresh-cw" class="w-5 h-5 text-emerald-200"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3 flex items-center gap-2 text-xs font-semibold text-slate-500">
+                        <img src="webphada.jpeg" 
+                             onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Logo_Kejaksaan_Agung_Republik_Indonesia.png/480px-Logo_Kejaksaan_Agung_Republik_Indonesia.png';"
+                             alt="Logo Kejaksaan" class="w-5 h-5 object-contain">
+                        <span>Tata Nilai Kerja Kejaksaan Negeri Kepulauan Sula</span>
+                    </div>
+                </div>
+
+                <!-- Right: Explanation of SULA Core Values -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-kejaksaan-lightGreen text-kejaksaan-green text-xs font-bold uppercase tracking-wider mb-3">
+                            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-kejaksaan-gold"></i>
+                            <span>Slogan & Budaya Kerja Adhyaksa Sula</span>
+                        </div>
+                        <h2 class="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-slate-900">
+                            Semangat Pelayanan <span class="text-kejaksaan-green">“SULA”</span>
+                        </h2>
+                        <p class="text-slate-600 mt-2 text-sm sm:text-base leading-relaxed">
+                            Setiap inovasi dalam <strong>LAYAR SULA</strong> digerakkan oleh empat pilar tata nilai insan Adhyaksa Kejaksaan Negeri Kepulauan Sula dalam melayani masyarakat dari Pulau Sulabesi hingga Pulau Mangoli:
+                        </p>
+                    </div>
+
+                    <!-- 4 Pillars Grid matching the SULA Slogan Poster colors -->
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <!-- S - Sinergi (Navy #1E3A5F) -->
+                        <div class="rounded-2xl border border-slate-200 p-4 bg-gradient-to-br from-white to-slate-50 hover:border-[#1E3A5F]/50 transition-all shadow-sm">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="w-9 h-9 rounded-xl bg-[#1E3A5F] text-white font-display font-extrabold text-lg flex items-center justify-center shadow-sm">S</span>
+                                <h3 class="font-display font-bold text-lg text-[#1E3A5F]">Sinergi</h3>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                Membangun kolaborasi erat lintas bidang, pemerintah daerah, pemerintah desa, dan masyarakat demi kelancaran akses keadilan antar-pulau.
+                            </p>
+                        </div>
+
+                        <!-- U - Unggul (Gold #C8A22B) -->
+                        <div class="rounded-2xl border border-slate-200 p-4 bg-gradient-to-br from-white to-amber-50/40 hover:border-kejaksaan-gold transition-all shadow-sm">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="w-9 h-9 rounded-xl bg-[#C8A22B] text-white font-display font-extrabold text-lg flex items-center justify-center shadow-sm">U</span>
+                                <h3 class="font-display font-bold text-lg text-[#9A7B1C]">Unggul</h3>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                Memberikan standar pelayanan publik prima yang profesional, cepat, tepat sasaran, dan melampaui ekspektasi masyarakat Kepulauan Sula.
+                            </p>
+                        </div>
+
+                        <!-- L - Loyal (Maroon #6B2323) -->
+                        <div class="rounded-2xl border border-slate-200 p-4 bg-gradient-to-br from-white to-rose-50/30 hover:border-[#6B2323]/50 transition-all shadow-sm">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="w-9 h-9 rounded-xl bg-[#6B2323] text-white font-display font-extrabold text-lg flex items-center justify-center shadow-sm">L</span>
+                                <h3 class="font-display font-bold text-lg text-[#6B2323]">Loyal</h3>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                Berdedikasi penuh dan berintegritas tinggi menjunjung nilai <em>Satya Adhi Wicaksana</em> dalam mengabdi kepada bangsa, negara, dan masyarakat.
+                            </p>
+                        </div>
+
+                        <!-- A - Adaptif (Adhyaksa Green #2B6237) -->
+                        <div class="rounded-2xl border border-slate-200 p-4 bg-gradient-to-br from-white to-emerald-50/40 hover:border-kejaksaan-green/50 transition-all shadow-sm">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="w-9 h-9 rounded-xl bg-[#2B6237] text-white font-display font-extrabold text-lg flex items-center justify-center shadow-sm">A</span>
+                                <h3 class="font-display font-bold text-lg text-kejaksaan-green">Adaptif</h3>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                Terus berinovasi memanfaatkan teknologi digital dan solusi maritim untuk menjawab tantangan geografis wilayah kepulauan.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. FITUR LAYANAN UNGGULAN LAYAR SULA -->
+    <section id="layanan" class="py-12 lg:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <span class="inline-block px-3 py-1 rounded-full bg-kejaksaan-lightGreen text-kejaksaan-green text-xs font-bold uppercase tracking-wider mb-3">
+                6 Layanan Terpadu Digital & Kepulauan
+            </span>
+            <h2 class="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-slate-900">
+                Pilih Layanan Hukum Tanpa Perlu Menyeberang Laut
+            </h2>
+            <p class="text-slate-600 mt-3 text-sm sm:text-base">
+                Ajukan permohonan secara daring dari rumah atau kantor desa Anda. Permohonan Anda akan otomatis diteruskan ke WhatsApp PTSP Kejaksaan Negeri Kepulauan Sula (0851-3879-3464) untuk diproses.
+            </p>
+        </div>
+
+        <!-- 6 Service Cards Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Service 1: Layar Antar BB -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-xl hover:border-kejaksaan-green/40 transition-all flex flex-col justify-between group">
+                <div>
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-kejaksaan-lightGreen text-kejaksaan-green flex items-center justify-center group-hover:bg-kejaksaan-green group-hover:text-white transition-colors">
+                            <i data-lucide="package-check" class="w-6 h-6"></i>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">
+                            Penyesuaian Ongkir
+                        </span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900 mb-2">Antar Barang Bukti (Layar Antar BB)</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Pengantaran barang bukti perkara pidana yang telah berkekuatan hukum tetap (<em>inkracht</em>) langsung ke alamat pemilik di seluruh kecamatan Pulau Sulabesi & Mangoli.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-slate-100">
+                    <button onclick="openServiceModal('Layar Antar BB - Antar Barang Bukti')" class="w-full py-3 px-4 rounded-xl bg-kejaksaan-green hover:bg-kejaksaan-darkGreen text-white font-semibold text-sm flex items-center justify-center gap-2 transition-colors">
+                        <span>Gunakan Layanan</span>
+                        <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Service 2: E-Tilang Sula -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-xl hover:border-kejaksaan-marine/40 transition-all flex flex-col justify-between group">
+                <div>
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-sky-50 text-kejaksaan-marine flex items-center justify-center group-hover:bg-kejaksaan-marine group-hover:text-white transition-colors">
+                            <i data-lucide="file-badge" class="w-6 h-6"></i>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-full bg-sky-50 text-kejaksaan-marine text-xs font-bold border border-sky-200">
+                            Cepat & Praktis
+                        </span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900 mb-2">Tilang Online & Delivery (E-Tilang Sula)</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Cek besaran denda tilang, pembayaran via Virtual Account/transfer resmi, dan pengiriman berkas tilang (SIM/STNK) langsung ke rumah atau kantor kecamatan terdekat.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-slate-100">
+                    <button onclick="openServiceModal('E-Tilang Sula - Tilang Online & Delivery')" class="w-full py-3 px-4 rounded-xl bg-kejaksaan-marine hover:bg-kejaksaan-marineLight text-white font-semibold text-sm flex items-center justify-center gap-2 transition-colors">
+                        <span>Gunakan Layanan</span>
+                        <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Service 3: Halo JPN / Halo Jaksa Sula -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-xl hover:border-kejaksaan-green/40 transition-all flex flex-col justify-between group">
+                <div>
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center group-hover:bg-kejaksaan-gold group-hover:text-kejaksaan-darkGreen transition-colors">
+                            <i data-lucide="scale" class="w-6 h-6"></i>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold border border-amber-200">
+                            Video Call / Chat
+                        </span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900 mb-2">Konsultasi Hukum Gratis (Halo JPN)</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Pos Pelayanan Hukum gratis bagi masyarakat umum, nelayan, maupun perangkat desa terkait permasalahan Perdata, Tata Usaha Negara (TUN), serta pendampingan hukum.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-slate-100">
+                    <button onclick="openServiceModal('Halo JPN - Konsultasi Hukum Daring')" class="w-full py-3 px-4 rounded-xl bg-kejaksaan-green hover:bg-kejaksaan-darkGreen text-white font-semibold text-sm flex items-center justify-center gap-2 transition-colors">
+                        <span>Gunakan Layanan</span>
+                        <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Service 4: Sibeta / Izin Besuk Tahanan Online -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-xl hover:border-kejaksaan-marine/40 transition-all flex flex-col justify-between group">
+                <div>
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-kejaksaan-lightGreen text-kejaksaan-green flex items-center justify-center group-hover:bg-kejaksaan-green group-hover:text-white transition-colors">
+                            <i data-lucide="calendar-check-2" class="w-6 h-6"></i>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">
+                            Tanpa Antre
+                        </span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900 mb-2">Izin Besuk Tahanan Online (Sibeta)</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Pendaftaran surat izin besuk tahanan dari rumah sebelum Anda menyeberang menuju Sanana, sehingga jadwal kunjungan terjamin pasti dan bebas antrean.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-slate-100">
+                    <button onclick="openServiceModal('Sibeta - Izin Besuk Tahanan Online')" class="w-full py-3 px-4 rounded-xl bg-kejaksaan-marine hover:bg-kejaksaan-marineLight text-white font-semibold text-sm flex items-center justify-center gap-2 transition-colors">
+                        <span>Gunakan Layanan</span>
+                        <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Service 5: Lapor Sula -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-xl hover:border-red-300 transition-all flex flex-col justify-between group">
+                <div>
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center group-hover:bg-rose-700 group-hover:text-white transition-colors">
+                            <i data-lucide="shield-alert" class="w-6 h-6"></i>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-full bg-rose-50 text-rose-700 text-xs font-bold border border-rose-200">
+                            Identitas Rahasia
+                        </span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900 mb-2">Pengaduan & Whistleblowing System (Lapor Sula)</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Saluran pengaduan &amp; whistleblowing system untuk pelaporan dugaan tindak pidana korupsi, penyalahgunaan dana desa, atau pungutan liar secara aman, terenkripsi, dan identitas pelapor dijamin rahasia.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-slate-100">
+                    <button onclick="openServiceModal('Lapor Sula - Pengaduan & Whistleblowing System')" class="w-full py-3 px-4 rounded-xl bg-kejaksaan-green hover:bg-kejaksaan-darkGreen text-white font-semibold text-sm flex items-center justify-center gap-2 transition-colors">
+                        <span>Gunakan Layanan</span>
+                        <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Service 6: Jaksa Menyapa, Jaksa Masuk Sekolah, dan Jaga Desa -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-xl hover:border-kejaksaan-marine/40 transition-all flex flex-col justify-between group">
+                <div>
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-sky-50 text-kejaksaan-marine flex items-center justify-center group-hover:bg-kejaksaan-marine group-hover:text-white transition-colors">
+                            <i data-lucide="ship" class="w-6 h-6"></i>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-full bg-sky-50 text-kejaksaan-marine text-xs font-bold border border-sky-200">
+                            Desa &amp; Sekolah
+                        </span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900 mb-2">Jaksa Menyapa, Jaksa Masuk Sekolah, dan Jaga Desa</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Program Jaksa Menyapa, Jaksa Masuk Sekolah, dan Jaga Desa berupa penyuluhan hukum keliling, edukasi pelajar, serta pendampingan tata kelola Dana Desa di Kepulauan Sula.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-slate-100">
+                    <button onclick="openServiceModal('Jaksa Menyapa, Jaksa Masuk Sekolah, dan Jaga Desa')" class="w-full py-3 px-4 rounded-xl bg-kejaksaan-marine hover:bg-kejaksaan-marineLight text-white font-semibold text-sm flex items-center justify-center gap-2 transition-colors">
+                        <span>Gunakan Layanan</span>
+                        <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3. PELACAKAN STATUS LAYANAN (LACAK TIKET LAYAR SULA) -->
+    <section id="lacak" class="py-16 bg-kejaksaan-ocean border-y border-sky-100">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-lg border border-slate-200 p-6 sm:p-10">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-6 mb-6">
+                    <div>
+                        <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-kejaksaan-marine bg-sky-50 px-3 py-1 rounded-full mb-2">
+                            <i data-lucide="radar" class="w-3.5 h-3.5"></i> Real-Time Tracking
+                        </span>
+                        <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900">Lacak Tiket LAYAR SULA</h2>
+                        <p class="text-slate-600 text-sm mt-1">Pantau posisi pengiriman barang bukti, berkas tilang, atau status permohonan Anda. Demi privasi, masukkan <strong>nomor resi</strong> dan <strong>4 digit terakhir nomor WhatsApp</strong> yang didaftarkan.</p>
+                    </div>
+                </div>
+
+                <!-- Search Form -->
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <div class="relative flex-1">
+                        <i data-lucide="ticket" class="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2"></i>
+                        <input type="text" id="trackingInput" placeholder="Masukkan Nomor Resi (Contoh: LS-2026-0891)" 
+                               class="w-full pl-12 pr-4 py-3.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-kejaksaan-green focus:border-kejaksaan-green outline-none font-mono text-sm uppercase">
+                    </div>
+                    <div class="relative sm:w-56">
+                        <i data-lucide="smartphone" class="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2"></i>
+                        <input type="text" id="trackingPhone" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="4 digit akhir WA" aria-label="4 digit terakhir nomor WhatsApp pendaftar"
+                               class="w-full pl-12 pr-4 py-3.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-kejaksaan-green focus:border-kejaksaan-green outline-none font-mono text-sm">
+                    </div>
+                    <button onclick="trackTicket()" class="bg-kejaksaan-green hover:bg-kejaksaan-darkGreen text-white font-bold px-7 py-3.5 rounded-xl shadow-sm transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="search" class="w-4 h-4"></i>
+                        <span>Lacak Status</span>
+                    </button>
+                </div>
+
+                <!-- Tracking Result Display -->
+                <div id="trackingResult" class="hidden mt-8 pt-6 border-t border-slate-200">
+                    <!-- Populated dynamically via JS when ticket code is entered -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. JADWAL PELAYANAN KELILING KEPULAUAN (JEMPUT BOLA) -->
+    <section id="jadwal" class="py-16 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+            <div>
+                <span class="inline-block px-3 py-1 rounded-full bg-kejaksaan-lightGreen text-kejaksaan-green text-xs font-bold uppercase tracking-wider mb-3">
+                    Agenda Armada Laut & Darat
+                </span>
+                <h2 class="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-slate-900">
+                    Jadwal Pelayanan Keliling (Jemput Bola)
+                </h2>
+                <p class="text-slate-600 mt-2 text-sm sm:text-base max-w-2xl">
+                    Tim terpadu Kejaksaan Negeri Kepulauan Sula hadir langsung di kantor kecamatan dan balai desa untuk pelayanan hukum terpadu serta pengantaran barang bukti terjadwal. Klik <strong>Daftar</strong> pada lokasi terdekat untuk mendaftar via WhatsApp.
+                </p>
+            </div>
+
+            <!-- Island Filter Tabs -->
+            <div class="inline-flex p-1.5 bg-slate-100 rounded-xl border border-slate-200 self-start">
+                <button onclick="filterSchedule('all')" id="tab-all" class="schedule-tab px-4 py-2 rounded-lg text-xs sm:text-sm font-bold bg-kejaksaan-green text-white shadow-sm transition-all">
+                    Semua Pulau (12 Kec.)
+                </button>
+                <button onclick="filterSchedule('Sulabesi')" id="tab-Sulabesi" class="schedule-tab px-4 py-2 rounded-lg text-xs sm:text-sm font-bold text-slate-600 hover:text-slate-900 transition-all">
+                    Pulau Sulabesi
+                </button>
+                <button onclick="filterSchedule('Mangoli')" id="tab-Mangoli" class="schedule-tab px-4 py-2 rounded-lg text-xs sm:text-sm font-bold text-slate-600 hover:text-slate-900 transition-all">
+                    Pulau Mangoli
+                </button>
+            </div>
+        </div>
+
+        <!-- Schedule Cards Grid -->
+        <div id="scheduleGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <!-- Dynamically rendered by JavaScript -->
+        </div>
+    </section>
+
+    <!-- 5. ZONA INTEGRITAS & FOOTER -->
+    <footer id="kontak" class="bg-kejaksaan-darkGreen text-white pt-16 pb-10 border-t-4 border-kejaksaan-gold">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Zona Integritas Banner -->
+            <div class="bg-gradient-to-r from-kejaksaan-green to-kejaksaan-marine rounded-2xl p-6 sm:p-8 border border-kejaksaan-gold/30 mb-14 flex flex-col lg:flex-row items-center justify-between gap-6 shadow-xl">
+                <div class="flex items-start sm:items-center gap-4">
+                    <div class="w-16 h-16 rounded-2xl bg-white p-1.5 border-2 border-kejaksaan-gold flex items-center justify-center shrink-0 shadow-md">
+                        <img src="webphada.jpeg" 
+                             onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Logo_Kejaksaan_Agung_Republik_Indonesia.png/480px-Logo_Kejaksaan_Agung_Republik_Indonesia.png';"
+                             alt="Logo Kejaksaan RI" 
+                             class="w-full h-full object-contain">
+                    </div>
+                    <div>
+                        <div class="text-xs font-bold uppercase tracking-wider text-kejaksaan-gold">Komitmen Reformasi Birokrasi • SULA (Sinergi, Unggul, Loyal, Adaptif)</div>
+                        <h3 class="font-display font-bold text-xl sm:text-2xl text-white mt-0.5">Zona Integritas Menuju WBK & WBBM</h3>
+                        <p class="text-slate-200 text-sm mt-1">
+                            Seluruh layanan dalam inovasi <strong>LAYAR SULA</strong> bebas dari pungutan liar (Zero Pungli), transparan, dan akuntabel demi melayani masyarakat Kepulauan Sula.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Footer Columns -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+                <div class="lg:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3.5">
+                        <div class="w-12 h-12 rounded-xl bg-white p-1 flex items-center justify-center shrink-0 border border-kejaksaan-gold">
+                            <img src="webphada.jpeg" 
+                                 onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Logo_Kejaksaan_Agung_Republik_Indonesia.png/480px-Logo_Kejaksaan_Agung_Republik_Indonesia.png';"
+                                 alt="Logo Kejaksaan RI" 
+                                 class="w-full h-full object-contain">
+                        </div>
+                        <div>
+                            <div class="font-display font-extrabold text-lg">LAYAR SULA</div>
+                            <div class="text-xs text-kejaksaan-gold font-semibold">Kejaksaan Negeri Kepulauan Sula</div>
+                            <div class="text-[11px] text-slate-300">Slogan: Sinergi • Unggul • Loyal • Adaptif</div>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed max-w-md">
+                        Layanan Jarak Jauh & Terpadu Kejaksaan Negeri Kepulauan Sula. Menjembatani jarak antar - pulau di Kabupaten Kepulauan Sula dengan pelayanan hukum yang humanis, cepat, dan tanpa biaya.
+                    </p>
+                    <div class="flex items-start gap-2.5 text-sm text-slate-200 pt-1">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-kejaksaan-gold shrink-0 mt-0.5"></i>
+                        <span>Jl. Jendral Besar Soeharto, Desa Waihama, Kec. Sanana, Kabupaten Kepulauan Sula, Provinsi Maluku Utara 97795</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-display font-bold text-base text-kejaksaan-gold mb-4">Tautan Layanan</h4>
+                    <ul class="space-y-2.5 text-sm text-slate-300">
+                        <li><button onclick="openServiceModal('Layar Antar BB - Antar Barang Bukti')" class="hover:text-white transition-colors">Antar Barang Bukti</button></li>
+                        <li><button onclick="openServiceModal('E-Tilang Sula - Tilang Online & Delivery')" class="hover:text-white transition-colors">E-Tilang Sula Delivery</button></li>
+                        <li><button onclick="openServiceModal('Halo JPN - Konsultasi Hukum Daring')" class="hover:text-white transition-colors">Halo JPN (Konsultasi Hukum)</button></li>
+                        <li><button onclick="openServiceModal('Sibeta - Izin Besuk Tahanan Online')" class="hover:text-white transition-colors">Izin Besuk Tahanan Online</button></li>
+                        <li><a href="#lacak" class="hover:text-white transition-colors">Cek Status Pengajuan</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-display font-bold text-base text-kejaksaan-gold mb-4">Kontak & Jam Layanan</h4>
+                    <ul class="space-y-3 text-sm text-slate-300">
+                        <li class="flex items-center gap-2.5">
+                            <i data-lucide="phone-call" class="w-4 h-4 text-kejaksaan-gold"></i>
+                            <span>Hotline PTSP: (0929) 2221-XXX</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i data-lucide="message-square" class="w-4 h-4 text-emerald-400"></i>
+                            <a href="https://wa.me/6285138793464?text=Halo%20Petugas%20PTSP%20Kejaksaan%20Negeri%20Kepulauan%20Sula%2C%20saya%20ingin%20bertanya%20mengenai%20layanan%20LAYAR%20SULA." target="_blank" rel="noopener noreferrer" class="hover:text-emerald-300 transition-colors">WhatsApp: 0851-3879-3464</a>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i data-lucide="clock" class="w-4 h-4 text-sky-300"></i>
+                            <span>Senin – Jumat: 08.00 – 16.00 WIT</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i data-lucide="globe" class="w-4 h-4 text-kejaksaan-gold"></i>
+                            <span>kejari-kepsula.kejaksaan.go.id</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-400">
+                <p>&copy; 2026 Kejaksaan Negeri Kepulauan Sula — Inovasi Pelayanan Publik LAYAR SULA. Hak Cipta Dilindungi.</p>
+                <p class="text-slate-300 font-medium">Satya Adhi Wicaksana • SULA (Sinergi, Unggul, Loyal, Adaptif)</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===================================================================== -->
+    <!-- INTERACTIVE MODAL 1: FORMULIR PENGAJUAN LAYANAN LAYAR SULA            -->
+    <!-- ===================================================================== -->
+    <div id="serviceModal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modalTitle" role="dialog" aria-modal="true">
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm transition-opacity" onclick="closeServiceModal()"></div>
+
+        <div class="flex min-h-full items-center justify-center p-4">
+            <div class="relative bg-white rounded-3xl max-w-xl w-full shadow-2xl border border-slate-200 overflow-hidden transform transition-all">
+                
+                <!-- Modal Header -->
+                <div class="bg-gradient-to-r from-kejaksaan-green to-kejaksaan-marine px-6 py-5 text-white flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-white p-1 flex items-center justify-center shrink-0">
+                            <img src="webphada.jpeg" 
+                                 onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Logo_Kejaksaan_Agung_Republik_Indonesia.png/480px-Logo_Kejaksaan_Agung_Republik_Indonesia.png';"
+                                 alt="Logo Kejaksaan" class="w-full h-full object-contain">
+                        </div>
+                        <div>
+                            <span class="text-[11px] font-bold uppercase tracking-wider text-kejaksaan-gold">Formulir Digital LAYAR SULA</span>
+                            <h3 id="modalTitle" class="font-display font-bold text-lg sm:text-xl mt-0.5">Pengajuan Layanan</h3>
+                        </div>
+                    </div>
+                    <button onclick="closeServiceModal()" class="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors" aria-label="Tutup">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+
+                <!-- Form View -->
+                <form id="serviceForm" novalidate onsubmit="submitServiceForm(event)" class="p-6 space-y-4">
+                    <input type="hidden" id="selectedServiceInput" name="service">
+                    <!-- Honeypot anti-bot (tidak terlihat oleh pengguna) -->
+                    <div class="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+                        <label>Website <input type="text" id="websiteField" tabindex="-1" autocomplete="off"></label>
+                    </div>
+
+                    <div id="formAlert" class="hidden" role="alert"></div>
+
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="applicantName" class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Nama Lengkap Sesuai KTP *</label>
+                            <input type="text" id="applicantName" required aria-required="true" maxlength="60" autocomplete="name" placeholder="Contoh: La Ode Muhammad"
+                                   class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-kejaksaan-green focus:border-kejaksaan-green outline-none text-sm">
+                            <p id="err-applicantName" class="hidden mt-1 text-xs text-rose-600 font-medium" role="alert"></p>
+                        </div>
+                        <div>
+                            <label for="applicantPhone" class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Nomor WhatsApp Aktif *</label>
+                            <input type="tel" id="applicantPhone" required aria-required="true" inputmode="tel" maxlength="20" autocomplete="tel" placeholder="Contoh: 081244xxxxxx"
+                                   class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-kejaksaan-green focus:border-kejaksaan-green outline-none text-sm">
+                            <p id="err-applicantPhone" class="hidden mt-1 text-xs text-rose-600 font-medium" role="alert"></p>
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="applicantDistrict" class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Kecamatan Asal (12 Kec.) *</label>
+                            <select id="applicantDistrict" required aria-required="true" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-kejaksaan-green focus:border-kejaksaan-green outline-none text-sm bg-white">
+                                <option value="" disabled selected>-- Pilih Kecamatan --</option>
+                                <optgroup label="Pulau Sulabesi">
+                                    <option value="Sanana (Pulau Sulabesi)">Sanana</option>
+                                    <option value="Sanana Utara (Pulau Sulabesi)">Sanana Utara</option>
+                                    <option value="Sulabesi Tengah (Pulau Sulabesi)">Sulabesi Tengah</option>
+                                    <option value="Sulabesi Barat (Pulau Sulabesi)">Sulabesi Barat</option>
+                                    <option value="Sulabesi Selatan (Pulau Sulabesi)">Sulabesi Selatan</option>
+                                    <option value="Sulabesi Timur (Pulau Sulabesi)">Sulabesi Timur</option>
+                                </optgroup>
+                                <optgroup label="Pulau Mangoli">
+                                    <option value="Mangoli Timur (Pulau Mangoli)">Mangoli Timur</option>
+                                    <option value="Mangoli Tengah (Pulau Mangoli)">Mangoli Tengah</option>
+                                    <option value="Mangoli Utara Timur (Pulau Mangoli)">Mangoli Utara Timur</option>
+                                    <option value="Mangoli Barat (Pulau Mangoli)">Mangoli Barat</option>
+                                    <option value="Mangoli Utara (Pulau Mangoli)">Mangoli Utara</option>
+                                    <option value="Mangoli Selatan (Pulau Mangoli)">Mangoli Selatan</option>
+                                </optgroup>
+                            </select>
+                            <p id="err-applicantDistrict" class="hidden mt-1 text-xs text-rose-600 font-medium" role="alert"></p>
+                        </div>
+                        <div>
+                            <label for="applicantVillage" class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Desa / Dusun Tujuan *</label>
+                            <input type="text" id="applicantVillage" required aria-required="true" maxlength="80" placeholder="Nama Desa & Patokan Rumah"
+                                   class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-kejaksaan-green focus:border-kejaksaan-green outline-none text-sm">
+                            <p id="err-applicantVillage" class="hidden mt-1 text-xs text-rose-600 font-medium" role="alert"></p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="applicantNotes" class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Keterangan / Nomor Perkara / Tilang *</label>
+                        <textarea id="applicantNotes" rows="3" required aria-required="true" maxlength="1000" placeholder="Jelaskan kebutuhan Anda (misal: Nomor Putusan Pengadilan, Nomor Register Tilang, Nama Tahanan, atau Pokok Permasalahan Hukum)..."
+                                  class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-kejaksaan-green focus:border-kejaksaan-green outline-none text-sm"></textarea>
+                        <div class="flex items-start justify-between gap-3 mt-1">
+                            <p id="hint-applicantNotes" class="text-[11px] text-slate-500 leading-snug"></p>
+                            <span id="notesCounter" class="text-[11px] text-slate-400 font-mono shrink-0">0/1000</span>
+                        </div>
+                        <p id="err-applicantNotes" class="hidden mt-1 text-xs text-rose-600 font-medium" role="alert"></p>
+                    </div>
+
+                    <!-- Unggah dokumen (divalidasi: jenis, ukuran, isi file) -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Unggah Foto KTP / Dokumen Pendukung (Opsional)</label>
+                        <label for="docUpload" class="flex items-center justify-between px-4 py-3 rounded-xl border-2 border-dashed border-slate-300 hover:border-kejaksaan-green bg-slate-50 cursor-pointer transition-colors">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="upload-cloud" class="w-5 h-5 text-kejaksaan-green"></i>
+                                <span id="fileNameLabel" class="text-xs sm:text-sm text-slate-600">Pilih foto KTP / Surat Putusan / Bukti Tilang/Lainnya</span>
+                            </div>
+                            <span class="text-xs font-bold text-kejaksaan-marine bg-white px-2.5 py-1 rounded-lg border border-slate-200">Pilih File</span>
+                        </label>
+                        <input type="file" id="docUpload" class="hidden" accept=".jpg,.jpeg,.png,.pdf,image/jpeg,image/png,application/pdf" onchange="updateFileName(this)">
+                        <p class="text-[11px] text-slate-500 mt-1">Format JPG, PNG, atau PDF &bull; maksimal 2 MB.</p>
+                        <p id="err-docUpload" class="hidden mt-1 text-xs text-rose-600 font-medium" role="alert"></p>
+                    </div>
+
+                    <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-3 flex items-start gap-2.5 text-xs text-emerald-900">
+                        <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                        <span>Layanan ini <strong>100% GRATIS</strong>. Saat dikirim, permohonan otomatis diteruskan ke WhatsApp PTSP (<strong>0851-3879-3464</strong>) untuk konfirmasi jadwal pengiriman/layanan.</span>
+                    </div>
+
+                    <div class="pt-2 flex flex-col sm:flex-row gap-3">
+                        <button type="button" onclick="closeServiceModal()" class="sm:w-1/3 py-3 px-4 rounded-xl border border-slate-300 text-slate-700 font-semibold text-sm hover:bg-slate-50">
+                            Batal
+                        </button>
+                        <button type="submit" id="submitBtn" class="sm:w-2/3 py-3 px-4 rounded-xl bg-kejaksaan-green hover:bg-kejaksaan-darkGreen text-white font-bold text-sm shadow-md flex items-center justify-center gap-2">
+                            <span>Kirim ke WhatsApp & Dapatkan Resi</span>
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Success Ticket Generated View (Hidden initially) -->
+                <div id="ticketSuccessView" class="hidden p-6 sm:p-8 text-center space-y-5">
+                    <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
+                        <i data-lucide="check-circle-2" class="w-10 h-10"></i>
+                    </div>
+                    <div>
+                        <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">Permohonan Berhasil Terdaftar</span>
+                        <h4 class="font-display font-extrabold text-2xl text-slate-900 mt-2">Nomor Resi LAYAR SULA Anda</h4>
+                        <p class="text-slate-600 text-sm mt-1">Simpan nomor resi di bawah ini untuk memantau status layanan secara real-time.</p>
+                    </div>
+
+                    <div class="bg-slate-900 text-white rounded-2xl p-5 border-2 border-kejaksaan-gold relative">
+                        <div class="text-xs text-slate-400 uppercase tracking-widest mb-1">Kode Tiket Layanan</div>
+                        <div id="generatedTicketCode" class="font-mono font-extrabold text-2xl sm:text-3xl text-kejaksaan-gold tracking-wider">LS-2026-XXXX</div>
+                        <div id="generatedTicketSummary" class="text-xs text-slate-300 mt-2"></div>
+                        <button onclick="copyTicketCode()" class="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-semibold text-white transition-colors">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            <span id="copyBtnText">Salin Nomor Resi</span>
+                        </button>
+                    </div>
+
+                    <div class="text-left rounded-2xl border border-emerald-200 bg-emerald-50 p-4 space-y-3">
+                        <div class="flex items-start gap-3">
+                            <div class="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0"><i data-lucide="message-circle" class="w-5 h-5"></i></div>
+                            <div>
+                                <div class="font-bold text-emerald-900 text-sm">Pengiriman Otomatis ke WhatsApp PTSP (0851-3879-3464)</div>
+                                <p class="text-xs text-emerald-800 mt-0.5 leading-relaxed">Data pengajuan sudah disiapkan sebagai pesan otomatis ke nomor WhatsApp <strong>0851-3879-3464</strong>. Tekan <strong>Kirim</strong> di WhatsApp. Jika ada lampiran (KTP/putusan), kirim filenya di chat yang sama.</p>
+                            </div>
+                        </div>
+                        <a id="waSendLink" href="#" target="_blank" rel="noopener noreferrer"
+                           class="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm transition-colors">
+                            <i data-lucide="send" class="w-4 h-4"></i> Buka WhatsApp (0851-3879-3464)
+                        </a>
+                        <p id="waStatusNote" class="text-[11px] text-emerald-900 leading-relaxed"></p>
+                        <p class="text-[11px] text-slate-600">Untuk melacak tiket, siapkan nomor resi + 4 digit terakhir WhatsApp Anda: <span id="trackPinHint" class="font-mono font-bold text-slate-800"></span></p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                        <button onclick="trackNewlyCreatedTicket()" class="flex-1 py-3 px-4 rounded-xl bg-kejaksaan-marine hover:bg-kejaksaan-marineLight text-white font-bold text-sm flex items-center justify-center gap-2">
+                            <i data-lucide="radar" class="w-4 h-4"></i>
+                            <span>Lacak Tiket Sekarang</span>
+                        </button>
+                        <button onclick="closeServiceModal()" class="py-3 px-5 rounded-xl border border-slate-300 text-slate-700 font-semibold text-sm hover:bg-slate-50">
+                            Selesai
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- INTERACTIVE MODAL 2: PENDAFTARAN PELAYANAN KELILING (JEMPUT BOLA)     -->
+    <!-- ===================================================================== -->
+    <div id="scheduleModal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="scheduleModalTitle" role="dialog" aria-modal="true">
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm transition-opacity" onclick="closeScheduleModal()"></div>
+
+        <div class="flex min-h-full items-center justify-center p-4">
+            <div class="relative bg-white rounded-3xl max-w-lg w-full shadow-2xl border border-slate-200 overflow-hidden transform transition-all">
+                
+                <!-- Modal Header -->
+                <div class="bg-gradient-to-r from-kejaksaan-marine to-kejaksaan-green px-6 py-5 text-white flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-white p-1 flex items-center justify-center shrink-0">
+                            <img src="webphada.jpeg" 
+                                 onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Logo_Kejaksaan_Agung_Republik_Indonesia.png/480px-Logo_Kejaksaan_Agung_Republik_Indonesia.png';"
+                                 alt="Logo Kejaksaan" class="w-full h-full object-contain">
+                        </div>
+                        <div>
+                            <span class="text-[11px] font-bold uppercase tracking-wider text-kejaksaan-gold">Pendaftaran Jemput Bola</span>
+                            <h3 id="scheduleModalTitle" class="font-display font-bold text-lg sm:text-xl mt-0.5">Daftar Pelayanan Keliling</h3>
+                        </div>
+                    </div>
+                    <button onclick="closeScheduleModal()" class="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors" aria-label="Tutup">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+
+                <!-- Selected Schedule Summary Banner -->
+                <div class="bg-kejaksaan-ocean border-b border-sky-200/80 px-6 py-3.5 text-xs space-y-1">
+                    <div class="flex items-center justify-between">
+                        <span id="schedModalIsland" class="font-bold text-kejaksaan-marine uppercase tracking-wide">Pulau -</span>
+                        <span id="schedModalDate" class="font-semibold text-kejaksaan-green flex items-center gap-1">
+                            <i data-lucide="calendar" class="w-3.5 h-3.5 text-kejaksaan-gold"></i>
+                            <span>-</span>
+                        </span>
+                    </div>
+                    <div id="schedModalDistrict" class="font-display font-bold text-sm text-slate-900">-</div>
+                    <div id="schedModalLocation" class="text-slate-600 flex items-center gap-1">
+                        <i data-lucide="map-pin" class="w-3.5 h-3.5 text-kejaksaan-green shrink-0"></i>
+                        <span>-</span>
+                    </div>
+                </div>
+
+                <!-- Registration Form -->
+                <form id="scheduleRegForm" novalidate onsubmit="submitScheduleForm(event)" class="p-6 space-y-4">
+                    <div id="schedFormAlert" class="hidden" role="alert"></div>
+
+                    <!-- Nama Lengkap -->
+                    <div>
+                        <label for="schedRegName" class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Nama Lengkap Sesuai KTP *</label>
+                        <div class="relative">
+                            <i data-lucide="user" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+                            <input type="text" id="schedRegName" required aria-required="true" maxlength="60" autocomplete="name" placeholder="Masukkan nama lengkap Anda"
+                                   class="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-kejaksaan-green focus:border-kejaksaan-green outline-none text-sm">
+                        </div>
+                        <p id="err-schedRegName" class="hidden mt-1 text-xs text-rose-600 font-medium" role="alert"></p>
+                    </div>
+
+                    <!-- NIK (16 Digit) -->
+                    <div>
+                        <div class="flex items-center justify-between mb-1.5">
+                            <label for="schedRegNik" class="block text-xs font-bold text-slate-700 uppercase">Nomor Induk Kependudukan (NIK) *</label>
+                            <span id="nikCounter" class="text-[11px] font-mono text-slate-400">0/16 digit</span>
+                        </div>
+                        <div class="relative">
+                            <i data-lucide="credit-card" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+                            <input type="text" id="schedRegNik" required aria-required="true" inputmode="numeric" maxlength="16" placeholder="Masukkan 16 digit NIK sesuai KTP"
+                                   class="w-full pl-10 pr-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-kejaksaan-green focus:border-kejaksaan-green outline-none font-mono text-sm tracking-wider">
+                        </div>
+                        <p id="err-schedRegNik" class="hidden mt-1 text-xs text-rose-600 font-medium" role="alert"></p>
+                    </div>
+
+                    <!-- Alamat Lengkap -->
+                    <div>
+                        <label for="schedRegAddress" class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Alamat Lengkap *</label>
+                        <textarea id="schedRegAddress" rows="3" required aria-required="true" maxlength="250" placeholder="Tulis alamat lengkap (Jalan/Dusun, RT/RW, Desa/Kelurahan, Kecamatan)..."
+                                  class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-kejaksaan-green focus:border-kejaksaan-green outline-none text-sm"></textarea>
+                        <p id="err-schedRegAddress" class="hidden mt-1 text-xs text-rose-600 font-medium" role="alert"></p>
+                    </div>
+
+                    <!-- Info Box -->
+                    <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-3 flex items-start gap-2.5 text-xs text-emerald-900">
+                        <i data-lucide="message-circle" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                        <span>Data pendaftaran Anda akan langsung diformat dan dikirim ke <strong>WhatsApp PTSP Kejari Kepulauan Sula (0851-3879-3464)</strong>.</span>
+                    </div>
+
+                    <!-- Fallback Link if popup blocked -->
+                    <div id="schedWaFallbackBox" class="hidden bg-amber-50 border border-amber-200 rounded-xl p-3 text-xs text-amber-900 space-y-2">
+                        <p class="font-semibold">Browser memblokir pembukaan tab otomatis. Silakan klik tombol di bawah untuk mengirim pesan ke WhatsApp:</p>
+                        <a id="schedWaManualLink" href="#" target="_blank" rel="noopener noreferrer"
+                           class="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition-colors">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                            <span>Kirim Pendaftaran via WhatsApp (0851-3879-3464)</span>
+                        </a>
+                    </div>
+
+                    <!-- Submit & Cancel Buttons -->
+                    <div class="pt-2 flex flex-col sm:flex-row gap-3">
+                        <button type="button" onclick="closeScheduleModal()" class="sm:w-1/3 py-3 px-4 rounded-xl border border-slate-300 text-slate-700 font-semibold text-sm hover:bg-slate-50">
+                            Batal
+                        </button>
+                        <button type="submit" id="schedSubmitBtn" class="sm:w-2/3 py-3 px-4 rounded-xl bg-kejaksaan-green hover:bg-kejaksaan-darkGreen text-white font-bold text-sm shadow-md flex items-center justify-center gap-2">
+                            <span>Kirim Pendaftaran ke WA</span>
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- JAVASCRIPT APPLICATION LOGIC                                          -->
+    <!-- ===================================================================== -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // 1. Mock Database for Ticket Tracking
+        const ticketDatabase = {
+            'LS-2026-0891': {
+                code: 'LS-2026-0891',
+                service: 'Layar Antar BB - Antar Barang Bukti',
+                applicant: 'Bapak Ruslan Umasugi',
+                phone: '081234564821',
+                destination: 'Desa Falabisahaya, Kec. Mangoli Utara (Pulau Mangoli)',
+                itemDetail: '1 Unit Motor Honda Revo (Putusan Inkracht No. 42/Pid.B/2026/PN Snn)'
+            },
+            'LS-2026-0914': {
+                code: 'LS-2026-0914',
+                service: 'E-Tilang Sula - Tilang Online & Delivery',
+                applicant: 'Siti Rahma Soamole',
+                phone: '081234567305',
+                destination: 'Desa Waiboga, Kec. Sulabesi Tengah (Pulau Sulabesi)',
+                itemDetail: 'Pengembalian STNK & SIM C (Pembayaran VA Lunas)'
+            }
+        };
+
+        let lastCreatedTicketCode = null;
+        let lastCreatedTicketPin = '';
+
+        // 2. Schedule Data for "Jemput Bola Kepulauan" (Per Kecamatan - 12 Kecamatan)
+        const schedules = [
+            {
+                id: 'sched-1',
+                island: 'Sulabesi',
+                district: 'Kec. Sanana',
+                location: 'Posko PTSP Kejari Sula & Pasar Basanohi',
+                date: 'Senin, 30 November 2026',
+                time: '08.30 – 15.00 WIT',
+                services: ['Semua Layanan Terpadu LAYAR SULA'],
+                transport: 'Posko Utama Sanana'
+            },
+            {
+                id: 'sched-2',
+                island: 'Sulabesi',
+                district: 'Kec. Sanana Utara',
+                location: 'Kantor Camat Sanana Utara',
+                date: 'Selasa, 01 Desember 2026',
+                time: '09.00 – 14.30 WIT',
+                services: ['Antar Barang Bukti', 'E-Tilang Delivery', 'Halo JPN'],
+                transport: 'Layanan Keliling Darat'
+            },
+            {
+                id: 'sched-3',
+                island: 'Sulabesi',
+                district: 'Kec. Sulabesi Tengah',
+                location: 'Kantor Camat Sulabesi Tengah (Waiboga)',
+                date: 'Rabu, 02 Desember 2026',
+                time: '09.00 – 15.00 WIT',
+                services: ['Antar Barang Bukti', 'Konsultasi Hukum', 'Jaga Desa'],
+                transport: 'Layanan Keliling Darat'
+            },
+            {
+                id: 'sched-4',
+                island: 'Sulabesi',
+                district: 'Kec. Sulabesi Barat',
+                location: 'Kantor Camat Sulabesi Barat (Kabau)',
+                date: 'Kamis, 03 Desember 2026',
+                time: '09.00 – 14.30 WIT',
+                services: ['Konsultasi Hukum Gratis', 'Sibeta Info', 'E-Tilang'],
+                transport: 'Layanan Keliling Darat'
+            },
+            {
+                id: 'sched-5',
+                island: 'Sulabesi',
+                district: 'Kec. Sulabesi Selatan',
+                location: 'Balai Desa Fuata, Kec. Sulabesi Selatan',
+                date: 'Jumat, 04 Desember 2026',
+                time: '08.30 – 14.00 WIT',
+                services: ['E-Tilang Delivery', 'Halo JPN', 'Penyuluhan Hukum'],
+                transport: 'Layanan Keliling Darat'
+            },
+            {
+                id: 'sched-6',
+                island: 'Sulabesi',
+                district: 'Kec. Sulabesi Timur',
+                location: 'Kantor Camat Sulabesi Timur',
+                date: 'Senin, 07 Desember 2026',
+                time: '09.00 – 15.00 WIT',
+                services: ['Antar Barang Bukti', 'Jaga Desa', 'Konsultasi Hukum'],
+                transport: 'Layanan Keliling Darat'
+            },
+            {
+                id: 'sched-7',
+                island: 'Mangoli',
+                district: 'Kec. Mangoli Timur',
+                location: 'Aula Kantor Camat Mangoli Timur (Waitina)',
+                date: 'Selasa, 08 Desember 2026',
+                time: '09.00 – 15.00 WIT',
+                services: ['Antar Barang Bukti', 'Jaga Desa', 'Konsultasi Hukum'],
+                transport: 'Armada Speedboat'
+            },
+            {
+                id: 'sched-8',
+                island: 'Mangoli',
+                district: 'Kec. Mangoli Tengah',
+                location: 'Kantor Camat Mangoli Tengah',
+                date: 'Rabu, 09 Desember 2026',
+                time: '09.00 – 14.30 WIT',
+                services: ['E-Tilang Delivery', 'Halo JPN', 'Jaga Desa'],
+                transport: 'Armada Speedboat'
+            },
+            {
+                id: 'sched-9',
+                island: 'Mangoli',
+                district: 'Kec. Mangoli Utara',
+                location: 'Kantor Camat Mangoli Utara (Falabisahaya)',
+                date: 'Kamis, 10 Desember 2026',
+                time: '09.00 – 15.30 WIT',
+                services: ['Antar Barang Bukti', 'Pengaduan Masyarakat', 'Jaga Desa'],
+                transport: 'Kapal Penyeberangan Terjadwal'
+            },
+            {
+                id: 'sched-10',
+                island: 'Mangoli',
+                district: 'Kec. Mangoli Barat',
+                location: 'Kantor Camat Mangoli Barat',
+                date: 'Jumat, 11 Desember 2026',
+                time: '09.00 – 14.00 WIT',
+                services: ['Konsultasi Hukum', 'Antar Barang Bukti', 'Jaga Desa'],
+                transport: 'Armada Speedboat'
+            },
+            {
+                id: 'sched-11',
+                island: 'Mangoli',
+                district: 'Kec. Mangoli Utara Timur',
+                location: 'Kantor Camat Mangoli Utara Timur',
+                date: 'Senin, 14 Desember 2026',
+                time: '09.00 – 15.00 WIT',
+                services: ['Jaksa Menyapa Pesisir', 'Antar Barang Bukti', 'Konsultasi'],
+                transport: 'Armada Speedboat'
+            },
+            {
+                id: 'sched-12',
+                island: 'Mangoli',
+                district: 'Kec. Mangoli Selatan',
+                location: 'Balai Pertemuan Desa Waisakai, Kec. Mangoli Selatan',
+                date: 'Selasa, 15 Desember 2026',
+                time: '09.00 – 15.00 WIT',
+                services: ['Jaksa Menyapa Pesisir', 'Antar Barang Bukti', 'Konsultasi'],
+                transport: 'Armada Speedboat'
+            }
+        ];
+
+        // =====================================================================
+        // MODUL VALIDASI & PENGIRIMAN OTOMATIS KE WHATSAPP PTSP
+        // =====================================================================
+        const PTSP_WA = '6285138793464';
+        const MAX_PER_PHONE_PER_HOUR = 3;
+        const CODE_RE = /^LS-\d{4}-\d{4}$/;
+        const $ = (id) => document.getElementById(id);
+
+        let submittedTickets = [];
+        const phoneSubmissionTimes = new Map();
+
+        function esc(s) {
+            return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        }
+        function fmtSize(b) {
+            if (b < 1024) return b + ' B';
+            if (b < 1048576) return (b / 1024).toFixed(1) + ' KB';
+            return (b / 1048576).toFixed(1) + ' MB';
+        }
+        function nowWit() {
+            const d = new Date();
+            return d.toLocaleDateString('id-ID', { day: '2-digit', month: 'short', year: 'numeric' }) + ', ' +
+                   d.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }) + ' WIT';
+        }
+
+        // ---- Aturan per layanan ----
+        const SERVICE_RULES = {
+            'Layar Antar BB':  { needDigit: true,  hint: 'Wajib cantumkan nomor putusan pengadilan (contoh: 42/Pid.B/2026/PN Snn) dan jenis barang bukti.' },
+            'E-Tilang':        { needDigit: true,  hint: 'Wajib cantumkan nomor register tilang dan dokumen yang diambil (SIM/STNK).' },
+            'Halo JPN':        { needDigit: false, hint: 'Uraikan pokok permasalahan (perdata/TUN/pendampingan hukum) dan pertanyaan Anda.' },
+            'Sibeta':          { needDigit: false, hint: 'Cantumkan nama tahanan, hubungan dengan pemohon, dan tanggal besuk yang diinginkan.' },
+            'Lapor Sula':      { needDigit: false, hint: 'Sampaikan pengaduan & whistleblowing system secara jelas: apa, kapan, di mana, dan pihak yang terlibat.' },
+            'Jaksa Menyapa':   { needDigit: false, hint: 'Sebutkan program (Jaksa Menyapa, Jaksa Masuk Sekolah, atau Jaga Desa), topik, jadwal yang diminta, dan perkiraan peserta.' }
+        };
+        function ruleKey(service) { return Object.keys(SERVICE_RULES).find(k => String(service).startsWith(k)) || null; }
+        function isKnownService(service) { return ruleKey(service) !== null; }
+
+        // ---- Validator ----
+        const Validators = {
+            clean(s) { return String(s || '').replace(/\s+/g, ' ').trim(); },
+            cleanMultiline(s) { return String(s || '').replace(/[ \t]+/g, ' ').replace(/\s*\n\s*/g, '\n').replace(/\n{3,}/g, '\n\n').trim(); },
+            normalizePhone(s) {
+                let p = String(s || '').replace(/[\s.\-()]/g, '');
+                if (p.startsWith('+62')) p = '0' + p.slice(3);
+                else if (p.startsWith('62')) p = '0' + p.slice(2);
+                return p;
+            },
+            name(v) {
+                v = this.clean(v);
+                if (!v) return 'Nama lengkap wajib diisi.';
+                if (v.length < 3) return 'Nama minimal 3 karakter.';
+                if (v.length > 60) return 'Nama maksimal 60 karakter.';
+                if (!/^[\p{L}][\p{L}\s.'’\-]*$/u.test(v)) return 'Nama hanya boleh berisi huruf, spasi, titik, apostrof, dan tanda hubung (tanpa angka/simbol).';
+                if (/(.)\1{3,}/u.test(v.toLowerCase())) return 'Nama tidak wajar (karakter berulang). Tulis sesuai KTP.';
+                return '';
+            },
+            nik(v) {
+                const raw = String(v || '').trim();
+                if (!raw) return 'NIK wajib diisi.';
+                if (!/^\d+$/.test(raw)) return 'NIK hanya boleh berisi angka (16 digit).';
+                if (raw.length !== 16) return `NIK harus tepat 16 digit (saat ini ${raw.length} digit).`;
+                if (/^(\d)\1{15}$/.test(raw)) return 'NIK tidak valid. Periksa kembali sesuai KTP Anda.';
+                return '';
+            },
+            address(v) {
+                v = this.cleanMultiline(v);
+                if (!v) return 'Alamat lengkap wajib diisi.';
+                if (v.length < 10) return 'Alamat terlalu singkat (minimal 10 karakter). Cantumkan desa dan kecamatan.';
+                if (v.length > 250) return 'Alamat maksimal 250 karakter.';
+                if (!/\p{L}/u.test(v)) return 'Alamat harus mencantumkan nama desa/jalan.';
+                return '';
+            },
+            phone(v) {
+                const raw = String(v || '').trim();
+                if (!raw) return 'Nomor WhatsApp wajib diisi.';
+                if (/[^\d\s.\-()+]/.test(raw)) return 'Nomor hanya boleh berisi angka (boleh diawali +62).';
+                const p = this.normalizePhone(raw);
+                if (!/^08\d+$/.test(p)) return 'Gunakan nomor seluler Indonesia, diawali 08 atau +628.';
+                if (p.length < 10 || p.length > 13) return 'Panjang nomor tidak sesuai (10–13 digit).';
+                if (/^08(\d)\1+$/.test(p)) return 'Nomor tidak valid. Periksa kembali.';
+                return '';
+            },
+            district(v) {
+                if (!v) return 'Pilih kecamatan asal Anda.';
+                const opts = Array.from($('applicantDistrict').options).map(o => o.value).filter(Boolean);
+                return opts.includes(v) ? '' : 'Kecamatan tidak valid. Pilih dari daftar.';
+            },
+            village(v) {
+                v = this.clean(v);
+                if (!v) return 'Desa / dusun tujuan wajib diisi.';
+                if (v.length < 3) return 'Minimal 3 karakter.';
+                if (v.length > 80) return 'Maksimal 80 karakter.';
+                if (!/\p{L}/u.test(v)) return 'Cantumkan nama desa/dusun (harus mengandung huruf).';
+                if (!/^[\p{L}\p{N}\s.,'’\-\/()]+$/u.test(v)) return 'Terdapat karakter yang tidak diizinkan.';
+                return '';
+            },
+            notes(v, service) {
+                v = this.cleanMultiline(v);
+                if (!v) return 'Keterangan wajib diisi.';
+                if (v.length < 15) return `Keterangan terlalu singkat (${v.length}/15 karakter). Jelaskan lebih rinci.`;
+                if (v.length > 1000) return 'Keterangan maksimal 1000 karakter.';
+                if (v.split(/\s+/).length < 3) return 'Tulis minimal 3 kata agar petugas dapat memahami kebutuhan Anda.';
+                if (/(.)\1{5,}/u.test(v.toLowerCase())) return 'Keterangan tidak wajar (karakter berulang).';
+                const rule = SERVICE_RULES[ruleKey(service)];
+                if (rule && rule.needDigit && !/\d/.test(v)) return 'Layanan ini memerlukan nomor (nomor putusan / register tilang). Cantumkan nomornya.';
+                return '';
+            },
+            file(f) {
+                if (!f) return '';
+                const ext = (f.name.split('.').pop() || '').toLowerCase();
+                if (!['jpg', 'jpeg', 'png', 'pdf'].includes(ext)) return 'Format file harus JPG, PNG, atau PDF.';
+                if (/\.(exe|js|html?|php|bat|sh|cmd|scr|jar|svg)\./i.test(f.name)) return 'Nama file mencurigakan (ekstensi ganda). Ganti nama file.';
+                if (f.type && !['image/jpeg', 'image/png', 'application/pdf'].includes(f.type)) return 'Tipe file tidak sesuai. Gunakan JPG, PNG, atau PDF.';
+                if (f.size === 0) return 'File kosong. Pilih file lain.';
+                if (f.size > 2 * 1024 * 1024) return `Ukuran file ${fmtSize(f.size)} melebihi batas 2 MB.`;
+                return '';
+            }
+        };
+
+        // Cek isi file (magic bytes) agar ekstensi tidak dipalsukan
+        function sniffFile(file) {
+            return new Promise(resolve => {
+                const fr = new FileReader();
+                fr.onload = () => {
+                    const hex = Array.from(new Uint8Array(fr.result)).map(x => x.toString(16).padStart(2, '0')).join('');
+                    const ok = hex.startsWith('ffd8ff') || hex === '89504e47' || hex === '25504446';
+                    resolve(ok ? '' : 'Isi file tidak sesuai ekstensinya (bukan JPG/PNG/PDF yang asli).');
+                };
+                fr.onerror = () => resolve('File tidak dapat dibaca. Pilih ulang file Anda.');
+                fr.readAsArrayBuffer(file.slice(0, 4));
+            });
+        }
+
+        // ---- Status formulir (UI validasi) ----
+        const FIELD_IDS = ['applicantName', 'applicantPhone', 'applicantDistrict', 'applicantVillage', 'applicantNotes'];
+        const touched = new Set();
+        let isSubmitting = false;
+        const DEFAULT_FILE_LABEL = 'Pilih foto KTP / Surat Putusan / Bukti Tilang/Lainnya';
+
+        function fieldBox(id) { return id === 'docUpload' ? document.querySelector('label[for="docUpload"]') : $(id); }
+
+        function setFieldState(id, msg) {
+            const box = fieldBox(id), errEl = $('err-' + id);
+            if (!box || !errEl) return;
+            box.classList.remove('is-invalid', 'is-valid');
+            if (msg) {
+                box.classList.add('is-invalid');
+                box.setAttribute('aria-invalid', 'true');
+                errEl.textContent = msg;
+                errEl.classList.remove('hidden');
+            } else {
+                const hasValue = id === 'docUpload' ? !!($('docUpload').files && $('docUpload').files[0]) : !!$(id).value.trim();
+                if (hasValue) box.classList.add('is-valid');
+                box.removeAttribute('aria-invalid');
+                errEl.textContent = '';
+                errEl.classList.add('hidden');
+            }
+        }
+
+        function validateField(id, silent) {
+            let msg = '';
+            switch (id) {
+                case 'applicantName':     msg = Validators.name($('applicantName').value); break;
+                case 'applicantPhone':    msg = Validators.phone($('applicantPhone').value); break;
+                case 'applicantDistrict': msg = Validators.district($('applicantDistrict').value); break;
+                case 'applicantVillage':  msg = Validators.village($('applicantVillage').value); break;
+                case 'applicantNotes':    msg = Validators.notes($('applicantNotes').value, $('selectedServiceInput').value); break;
+                case 'docUpload':         msg = Validators.file($('docUpload').files[0]); break;
+            }
+            if (!silent) setFieldState(id, msg);
+            return msg;
+        }
+
+        function resetFormState() {
+            touched.clear();
+            FIELD_IDS.concat(['docUpload']).forEach(id => {
+                const box = fieldBox(id), errEl = $('err-' + id);
+                if (box) { box.classList.remove('is-invalid', 'is-valid'); box.removeAttribute('aria-invalid'); }
+                if (errEl) { errEl.textContent = ''; errEl.classList.add('hidden'); }
+            });
+            hideFormAlert();
+            const label = $('fileNameLabel');
+            label.textContent = DEFAULT_FILE_LABEL;
+            label.classList.remove('font-semibold', 'text-kejaksaan-green');
+            updateNotesCounter();
+        }
+
+        function updateNotesHint(service) {
+            const rule = SERVICE_RULES[ruleKey(service)];
+            $('hint-applicantNotes').textContent = rule ? rule.hint : '';
+        }
+        function updateNotesCounter() {
+            const n = $('applicantNotes').value.length;
+            const c = $('notesCounter');
+            c.textContent = `${n}/1000`;
+            c.classList.toggle('text-rose-500', n > 950);
+        }
+
+        function showFormAlert(type, html) {
+            const el = $('formAlert');
+            const styles = { error: 'bg-rose-50 border-rose-200 text-rose-800', warn: 'bg-amber-50 border-amber-200 text-amber-800' };
+            el.className = 'p-3 rounded-xl border text-xs flex items-start gap-2.5 ' + (styles[type] || styles.error);
+            el.innerHTML = `<i data-lucide="alert-circle" class="w-4 h-4 shrink-0 mt-0.5"></i><div class="leading-relaxed">${html}</div>`;
+            lucide.createIcons();
+            el.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        }
+        function hideFormAlert() { const el = $('formAlert'); if (el) { el.className = 'hidden'; el.innerHTML = ''; } }
+
+        function initFormValidation() {
+            FIELD_IDS.forEach(id => {
+                const el = $(id);
+                el.addEventListener('blur', () => {
+                    touched.add(id);
+                    if (id === 'applicantPhone' && !Validators.phone(el.value)) el.value = Validators.normalizePhone(el.value);
+                    validateField(id);
+                });
+                el.addEventListener('input', () => { if (touched.has(id)) validateField(id); });
+                el.addEventListener('change', () => { touched.add(id); validateField(id); });
+            });
+            $('applicantNotes').addEventListener('input', updateNotesCounter);
+            $('trackingInput').addEventListener('keydown', e => { if (e.key === 'Enter') trackTicket(); });
+        }
+
+        function collectForm() {
+            return {
+                service: $('selectedServiceInput').value,
+                name: Validators.clean($('applicantName').value),
+                phone: Validators.normalizePhone($('applicantPhone').value),
+                district: $('applicantDistrict').value,
+                village: Validators.clean($('applicantVillage').value),
+                notes: Validators.cleanMultiline($('applicantNotes').value)
+            };
+        }
+
+        // ---- Pencegahan duplikat & spam ----
+        const normText = s => String(s).toLowerCase().replace(/\s+/g, ' ').trim();
+        function findDuplicate(v) {
+            return submittedTickets.find(r => r.phone === v.phone && r.service === v.service && normText(r.notes) === normText(v.notes));
+        }
+        function isRateLimited(phone) {
+            const hourAgo = Date.now() - 3600000;
+            const list = (phoneSubmissionTimes.get(phone) || []).filter(ts => ts > hourAgo);
+            phoneSubmissionTimes.set(phone, list);
+            return list.length >= MAX_PER_PHONE_PER_HOUR;
+        }
+        function recordPhoneSubmission(phone) {
+            const hourAgo = Date.now() - 3600000;
+            const list = (phoneSubmissionTimes.get(phone) || []).filter(ts => ts > hourAgo);
+            list.push(Date.now());
+            phoneSubmissionTimes.set(phone, list);
+        }
+        function generateTicketCode() {
+            for (let i = 0; i < 100; i++) {
+                const c = `LS-${new Date().getFullYear()}-${1000 + Math.floor(Math.random() * 9000)}`;
+                if (!ticketDatabase[c]) return c;
+            }
+            return null;
+        }
+        function buildTicket(code, v, file) {
+            const timeStr = nowWit();
+            return {
+                code,
+                service: v.service,
+                applicant: v.name,
+                phone: v.phone,
+                district: v.district,
+                village: v.village,
+                notes: v.notes,
+                destination: `${v.village}, Kec. ${v.district}`,
+                itemDetail: v.notes,
+                file: file ? { name: file.name, size: file.size, type: file.type } : null,
+                submittedAt: timeStr
+            };
+        }
+
+        // ---- Pesan & Tautan WhatsApp Otomatis ke 085138793464 ----
+        function buildWaMessage(ticket) {
+            const fileInfo = ticket.file ? `${ticket.file.name} (${fmtSize(ticket.file.size)})` : '-';
+            return [
+                '*PENGAJUAN LAYAR SULA*',
+                'Kejaksaan Negeri Kepulauan Sula',
+                '',
+                `No. Resi: ${ticket.code}`,
+                `Layanan: ${ticket.service}`,
+                `Nama: ${ticket.applicant}`,
+                `WhatsApp Pemohon: ${ticket.phone}`,
+                `Kecamatan: ${ticket.district}`,
+                `Desa/Dusun: ${ticket.village}`,
+                `Keterangan: ${String(ticket.notes).replace(/\s*\n\s*/g, ' ').trim()}`,
+                `Lampiran: ${fileInfo}`,
+                `Waktu Pengajuan: ${ticket.submittedAt || nowWit()}`,
+                '',
+                '_Pesan otomatis dari sistem LAYAR SULA ke PTSP (0851-3879-3464)._'
+            ].join('\n');
+        }
+
+        function buildWaUrl(ticket) {
+            return `https://wa.me/${PTSP_WA}?text=${encodeURIComponent(buildWaMessage(ticket))}`;
+        }
+
+        function autoSendToWhatsApp(ticket) {
+            const url = buildWaUrl(ticket);
+            try {
+                const win = window.open(url, '_blank', 'noopener,noreferrer');
+                if (win) {
+                    return { opened: true, url };
+                }
+            } catch (e) {}
+            return { opened: false, url };
+        }
+
+        // ---- Pelacakan: verifikasi 4 digit WA + penguncian percobaan salah ----
+        const MAX_FAILS = 5, LOCK_MS = 60000;
+        let failState = { n: 0, until: 0 };
+        function lockRemaining() { return Math.max(0, Math.ceil((failState.until - Date.now()) / 1000)); }
+        function recordTrackFail() {
+            const n = (failState.until && failState.until < Date.now() ? 0 : failState.n) + 1;
+            failState = n >= MAX_FAILS ? { n: 0, until: Date.now() + LOCK_MS } : { n, until: 0 };
+        }
+        function resetTrackFails() { failState = { n: 0, until: 0 }; }
+        function ticketMatchesPin(tk, pin) {
+            return typeof tk.phone === 'string' && tk.phone.length >= 4 && tk.phone.slice(-4) === pin;
+        }
+
+        // 3. Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // 4. Service Modal Logic
+        function openServiceModal(serviceName) {
+            document.getElementById('modalTitle').textContent = serviceName;
+            document.getElementById('selectedServiceInput').value = serviceName;
+            
+            // Reset views
+            document.getElementById('serviceForm').classList.remove('hidden');
+            document.getElementById('ticketSuccessView').classList.add('hidden');
+            document.getElementById('serviceForm').reset();
+            resetFormState();
+            updateNotesHint(serviceName);
+            document.getElementById('fileNameLabel').textContent = 'Pilih foto KTP / Surat Putusan / Bukti Tilang...';
+
+            document.getElementById('serviceModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
+        }
+
+        function closeServiceModal() {
+            document.getElementById('serviceModal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        function updateFileName(input) {
+            const label = $('fileNameLabel');
+            const f = input.files && input.files[0];
+            const msg = validateField('docUpload');
+            if (f) {
+                label.textContent = `${f.name} (${fmtSize(f.size)})`;
+                label.classList.toggle('font-semibold', !msg);
+                label.classList.toggle('text-kejaksaan-green', !msg);
+            } else {
+                label.textContent = DEFAULT_FILE_LABEL;
+                label.classList.remove('font-semibold', 'text-kejaksaan-green');
+            }
+        }
+
+        async function submitServiceForm(e) {
+            e.preventDefault();
+            if (isSubmitting) return;
+            hideFormAlert();
+
+            // 1. Anti-bot
+            if ($('websiteField').value) { showFormAlert('error', 'Pengajuan tidak dapat diproses.'); return; }
+
+            // 2. Jenis layanan
+            const service = $('selectedServiceInput').value;
+            if (!isKnownService(service)) {
+                showFormAlert('error', 'Jenis layanan tidak dikenali. Tutup formulir lalu pilih layanan dari daftar.');
+                return;
+            }
+
+            // 3. Validasi seluruh isian
+            const errors = FIELD_IDS.concat(['docUpload']).map(id => ({ id, msg: validateField(id) })).filter(x => x.msg);
+            if (errors.length) {
+                showFormAlert('error', `Terdapat <strong>${errors.length} isian</strong> yang belum sesuai. Periksa kolom yang ditandai merah.`);
+                const first = errors[0].id;
+                if (first === 'docUpload') fieldBox(first).scrollIntoView({ block: 'center', behavior: 'smooth' });
+                else $(first).focus();
+                return;
+            }
+
+            isSubmitting = true;
+            const btn = $('submitBtn');
+            btn.disabled = true;
+            btn.classList.add('opacity-60', 'cursor-not-allowed');
+
+            try {
+                // 4. Validasi isi file (magic bytes)
+                const file = $('docUpload').files[0] || null;
+                if (file) {
+                    const sniff = await sniffFile(file);
+                    if (sniff) { setFieldState('docUpload', sniff); showFormAlert('error', esc(sniff)); return; }
+                }
+
+                const v = collectForm();
+
+                // 5. Duplikat & pembatasan
+                const dup = findDuplicate(v);
+                if (dup) {
+                    showFormAlert('warn', `Permohonan yang sama sudah diajukan dengan resi <strong class="font-mono">${esc(dup.code)}</strong>. Pantau lewat menu <em>Lacak Pengajuan</em>.`);
+                    return;
+                }
+                if (isRateLimited(v.phone)) {
+                    showFormAlert('warn', `Nomor ini sudah mengirim ${MAX_PER_PHONE_PER_HOUR} pengajuan dalam 1 jam terakhir. Silakan coba lagi nanti atau hubungi WhatsApp 0851-3879-3464.`);
+                    return;
+                }
+
+                // 6. Buat tiket & kirim otomatis ke WhatsApp 085138793464
+                const code = generateTicketCode();
+                if (!code) { showFormAlert('error', 'Gagal membuat nomor resi. Silakan coba lagi.'); return; }
+                const ticket = buildTicket(code, v, file);
+                submittedTickets.unshift(ticket);
+                ticketDatabase[code] = ticket;
+                recordPhoneSubmission(v.phone);
+
+                const waResult = autoSendToWhatsApp(ticket);
+                onTicketCreated(ticket, waResult);
+            } finally {
+                isSubmitting = false;
+                btn.disabled = false;
+                btn.classList.remove('opacity-60', 'cursor-not-allowed');
+            }
+        }
+
+        function onTicketCreated(ticket, waResult) {
+            lastCreatedTicketCode = ticket.code;
+            lastCreatedTicketPin = ticket.phone.slice(-4);
+
+            $('generatedTicketCode').textContent = ticket.code;
+            $('generatedTicketSummary').textContent = `${ticket.service} • Tujuan: ${ticket.district} • Tujuan WA: 0851-3879-3464`;
+            $('copyBtnText').textContent = 'Salin Nomor Resi';
+            $('trackPinHint').textContent = lastCreatedTicketPin;
+            $('waSendLink').href = waResult.url;
+
+            $('serviceForm').classList.add('hidden');
+            $('ticketSuccessView').classList.remove('hidden');
+
+            $('waStatusNote').textContent = waResult.opened
+                ? 'Jendela WhatsApp ke 0851-3879-3464 telah dibuka otomatis. Tekan Kirim di WhatsApp agar pesan diterima petugas PTSP.'
+                : 'Browser memblokir pembukaan otomatis. Klik tombol "Buka WhatsApp (0851-3879-3464)" di atas untuk mengirim pesan.';
+
+            lucide.createIcons();
+        }
+
+        function copyTicketCode() {
+            const code = document.getElementById('generatedTicketCode').textContent;
+            const tempInput = document.createElement('input');
+            tempInput.value = code;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            document.getElementById('copyBtnText').textContent = 'Tersalin!';
+        }
+
+        function trackNewlyCreatedTicket() {
+            closeServiceModal();
+            const inputEl = document.getElementById('trackingInput');
+            const pinEl = document.getElementById('trackingPhone');
+            const resultContainer = document.getElementById('trackingResult');
+            inputEl.value = '';
+            pinEl.value = '';
+            resultContainer.innerHTML = '';
+            resultContainer.classList.add('hidden');
+            document.getElementById('lacak').scrollIntoView({ behavior: 'smooth' });
+            setTimeout(() => inputEl.focus(), 400);
+        }
+
+        // 5. Tracking Logic
+        function fillAndTrack(code, pin) {
+            document.getElementById('trackingInput').value = code;
+            document.getElementById('trackingPhone').value = pin || '';
+            trackTicket();
+        }
+
+        function trackTicket() {
+            const rawCode = document.getElementById('trackingInput').value.trim().toUpperCase();
+            const resultContainer = document.getElementById('trackingResult');
+
+            if (!rawCode) {
+                resultContainer.innerHTML = '';
+                resultContainer.classList.add('hidden');
+                return;
+            }
+
+            resultContainer.classList.remove('hidden');
+
+            if (!CODE_RE.test(rawCode)) {
+                resultContainer.innerHTML = `
+                    <div class="p-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-sm flex items-center gap-2.5">
+                        <i data-lucide="alert-circle" class="w-5 h-5 shrink-0"></i>
+                        <span>Format nomor resi tidak sesuai. Gunakan pola <strong>LS-TAHUN-0000</strong>, contoh <strong>LS-2026-0891</strong>.</span>
+                    </div>
+                `;
+                lucide.createIcons();
+                return;
+            }
+
+            const lockSec = lockRemaining();
+            if (lockSec > 0) {
+                resultContainer.innerHTML = `
+                    <div class="p-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-sm flex items-center gap-2.5">
+                        <i data-lucide="lock" class="w-5 h-5 shrink-0"></i>
+                        <span>Terlalu banyak percobaan yang tidak cocok. Pelacakan dikunci sementara, coba lagi dalam <strong>${lockSec} detik</strong>.</span>
+                    </div>
+                `;
+                lucide.createIcons();
+                return;
+            }
+
+            const pin = document.getElementById('trackingPhone').value.trim();
+            if (!/^\d{4}$/.test(pin)) {
+                resultContainer.innerHTML = `
+                    <div class="p-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-sm flex items-center gap-2.5">
+                        <i data-lucide="smartphone" class="w-5 h-5 shrink-0"></i>
+                        <span>Masukkan <strong>4 digit terakhir nomor WhatsApp</strong> yang Anda daftarkan untuk memverifikasi tiket.</span>
+                    </div>
+                `;
+                lucide.createIcons();
+                return;
+            }
+
+            const ticket = ticketDatabase[rawCode];
+
+            if (!ticket || !ticketMatchesPin(ticket, pin)) {
+                recordTrackFail();
+                resultContainer.innerHTML = `
+                    <div class="p-5 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 text-sm flex items-start gap-3">
+                        <i data-lucide="search-x" class="w-6 h-6 shrink-0 text-rose-600"></i>
+                        <div>
+                            <div class="font-bold">Tiket tidak ditemukan atau data tidak cocok</div>
+                            <p class="mt-1 text-rose-700">Periksa nomor resi dan 4 digit terakhir nomor WhatsApp yang didaftarkan. Setelah 5 kali tidak cocok, pelacakan dikunci 1 menit.</p>
+                        </div>
+                    </div>
+                `;
+                lucide.createIcons();
+                return;
+            }
+
+            resetTrackFails();
+
+            resultContainer.innerHTML = `
+                <div class="bg-slate-50 rounded-2xl p-5 sm:p-6 border border-slate-200">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-slate-200">
+                        <div>
+                            <span class="text-xs font-bold text-kejaksaan-green uppercase">${esc(ticket.service)}</span>
+                            <h3 class="font-mono font-extrabold text-xl text-slate-900 mt-0.5">${esc(ticket.code)}</h3>
+                        </div>
+                        <span class="self-start sm:self-center inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-full px-3 py-1">
+                            &#10003; Tiket Terverifikasi
+                        </span>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-4 pt-4 text-xs sm:text-sm">
+                        <div>
+                            <span class="text-slate-500 block text-xs">Nama Pemohon</span>
+                            <span class="font-bold text-slate-800">${esc(ticket.applicant)}</span>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 block text-xs">Tujuan Wilayah</span>
+                            <span class="font-bold text-slate-800">${esc(ticket.destination)}</span>
+                        </div>
+                        <div class="sm:col-span-2 bg-emerald-50/70 rounded-xl p-3.5 border border-emerald-200 flex items-center gap-2.5">
+                            <span class="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center shrink-0">&#10003;</span>
+                            <div>
+                                <span class="text-xs font-semibold uppercase tracking-wider text-emerald-800 block">Status Penerimaan</span>
+                                <p class="font-bold text-emerald-950">Layanan Sudah Di Terima Petugas</p>
+                            </div>
+                        </div>
+                        <div class="sm:col-span-2 bg-white rounded-xl p-4 border border-slate-200">
+                            <span class="text-slate-500 block text-xs font-semibold uppercase tracking-wider mb-1">Keterangan Layanan yang Digunakan</span>
+                            <p class="font-semibold text-slate-900 leading-relaxed">${esc(ticket.itemDetail)}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            lucide.createIcons();
+        }
+
+        function initTrackingExtras() {
+            const inputEl = $('trackingInput');
+            const pinEl = $('trackingPhone');
+            inputEl.addEventListener('input', () => {
+                if (!inputEl.value.trim()) {
+                    const resultContainer = $('trackingResult');
+                    resultContainer.innerHTML = '';
+                    resultContainer.classList.add('hidden');
+                }
+            });
+            pinEl.addEventListener('input', () => { pinEl.value = pinEl.value.replace(/\D/g, '').slice(0, 4); });
+            pinEl.addEventListener('keydown', e => { if (e.key === 'Enter') trackTicket(); });
+        }
+
+        // 6. Render & Filter Schedule Cards
+        function renderSchedules(filterIsland = 'all') {
+            const grid = document.getElementById('scheduleGrid');
+            const filtered = filterIsland === 'all' 
+                ? schedules 
+                : schedules.filter(s => s.island === filterIsland);
+
+            grid.innerHTML = filtered.map(item => {
+                const isMangoli = item.island === 'Mangoli';
+                const islandBadge = isMangoli 
+                    ? 'bg-sky-50 text-kejaksaan-marine border-sky-200' 
+                    : 'bg-emerald-50 text-kejaksaan-green border-emerald-200';
+
+                const serviceTags = item.services.map(srv => 
+                    `<span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-[11px] font-medium">${srv}</span>`
+                ).join('');
+
+                return `
+                    <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between gap-2 mb-3">
+                                <span class="px-2.5 py-1 rounded-full text-xs font-bold border ${islandBadge}">
+                                    Pulau ${item.island}
+                                </span>
+                                <span class="text-xs font-semibold text-slate-500 flex items-center gap-1">
+                                    <i data-lucide="calendar" class="w-3.5 h-3.5 text-kejaksaan-gold"></i>
+                                    ${item.date}
+                                </span>
+                            </div>
+                            <h3 class="font-display font-bold text-base text-slate-900 mb-1">${item.district}</h3>
+                            <p class="text-xs text-slate-600 flex items-start gap-1.5 mb-3">
+                                <i data-lucide="map-pin" class="w-4 h-4 text-kejaksaan-green shrink-0"></i>
+                                <span>${item.location} (${item.time})</span>
+                            </p>
+                            <div class="flex flex-wrap gap-1.5 mb-4">
+                                ${serviceTags}
+                            </div>
+                        </div>
+                        <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                            <span class="text-slate-500 flex items-center gap-1.5 font-medium">
+                                <i data-lucide="${isMangoli ? 'ship' : 'truck'}" class="w-4 h-4 text-kejaksaan-marine"></i>
+                                ${item.transport}
+                            </span>
+                            <button onclick="openScheduleModal('${item.id}')" class="inline-flex items-center gap-1 font-bold text-kejaksaan-green hover:text-kejaksaan-darkGreen hover:underline">
+                                <span>Daftar</span>
+                                <span>&rarr;</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            lucide.createIcons();
+        }
+
+        function filterSchedule(island) {
+            document.querySelectorAll('.schedule-tab').forEach(btn => {
+                btn.classList.remove('bg-kejaksaan-green', 'text-white', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+            const activeBtn = document.getElementById(`tab-${island}`);
+            activeBtn.classList.add('bg-kejaksaan-green', 'text-white', 'shadow-sm');
+            activeBtn.classList.remove('text-slate-600');
+
+            renderSchedules(island);
+        }
+
+        // 7. Schedule Registration Modal Logic (Nama, NIK, Alamat Lengkap -> WA)
+        let activeScheduleItem = null;
+        const SCHED_FIELD_IDS = ['schedRegName', 'schedRegNik', 'schedRegAddress'];
+        const schedTouched = new Set();
+
+        function setSchedFieldState(id, msg) {
+            const box = $(id), errEl = $('err-' + id);
+            if (!box || !errEl) return;
+            box.classList.remove('is-invalid', 'is-valid');
+            if (msg) {
+                box.classList.add('is-invalid');
+                box.setAttribute('aria-invalid', 'true');
+                errEl.textContent = msg;
+                errEl.classList.remove('hidden');
+            } else {
+                if (box.value.trim()) box.classList.add('is-valid');
+                box.removeAttribute('aria-invalid');
+                errEl.textContent = '';
+                errEl.classList.add('hidden');
+            }
+        }
+
+        function validateSchedField(id, silent) {
+            let msg = '';
+            switch (id) {
+                case 'schedRegName':    msg = Validators.name($('schedRegName').value); break;
+                case 'schedRegNik':     msg = Validators.nik($('schedRegNik').value); break;
+                case 'schedRegAddress': msg = Validators.address($('schedRegAddress').value); break;
+            }
+            if (!silent) setSchedFieldState(id, msg);
+            return msg;
+        }
+
+        function updateNikCounter() {
+            const len = $('schedRegNik').value.length;
+            const el = $('nikCounter');
+            if (el) {
+                el.textContent = `${len}/16 digit`;
+                el.classList.toggle('text-emerald-600', len === 16);
+                el.classList.toggle('font-bold', len === 16);
+            }
+        }
+
+        function showSchedAlert(html) {
+            const el = $('schedFormAlert');
+            el.className = 'p-3 rounded-xl border border-rose-200 bg-rose-50 text-rose-800 text-xs flex items-start gap-2.5';
+            el.innerHTML = `<i data-lucide="alert-circle" class="w-4 h-4 shrink-0 mt-0.5"></i><div class="leading-relaxed">${html}</div>`;
+            lucide.createIcons();
+        }
+
+        function hideSchedAlert() {
+            const el = $('schedFormAlert');
+            if (el) { el.className = 'hidden'; el.innerHTML = ''; }
+        }
+
+        function initScheduleFormValidation() {
+            const nikEl = $('schedRegNik');
+            nikEl.addEventListener('input', () => {
+                nikEl.value = nikEl.value.replace(/\D/g, '').slice(0, 16);
+                updateNikCounter();
+                if (schedTouched.has('schedRegNik')) validateSchedField('schedRegNik');
+            });
+
+            SCHED_FIELD_IDS.forEach(id => {
+                const el = $(id);
+                el.addEventListener('blur', () => {
+                    schedTouched.add(id);
+                    validateSchedField(id);
+                });
+                if (id !== 'schedRegNik') {
+                    el.addEventListener('input', () => {
+                        if (schedTouched.has(id)) validateSchedField(id);
+                    });
+                }
+            });
+        }
+
+        function openScheduleModal(scheduleId) {
+            const item = schedules.find(s => s.id === scheduleId);
+            if (!item) return;
+            activeScheduleItem = item;
+
+            $('schedModalIsland').textContent = `Pulau ${item.island} • ${item.transport}`;
+            $('schedModalDate').querySelector('span').textContent = item.date;
+            $('schedModalDistrict').textContent = item.district;
+            $('schedModalLocation').querySelector('span').textContent = `${item.location} (${item.time})`;
+
+            $('scheduleRegForm').reset();
+            schedTouched.clear();
+            SCHED_FIELD_IDS.forEach(id => {
+                const box = $(id), errEl = $('err-' + id);
+                if (box) { box.classList.remove('is-invalid', 'is-valid'); box.removeAttribute('aria-invalid'); }
+                if (errEl) { errEl.textContent = ''; errEl.classList.add('hidden'); }
+            });
+            hideSchedAlert();
+            $('schedWaFallbackBox').classList.add('hidden');
+            updateNikCounter();
+
+            $('scheduleModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
+            setTimeout(() => $('schedRegName').focus(), 50);
+        }
+
+        function closeScheduleModal() {
+            $('scheduleModal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        function submitScheduleForm(e) {
+            e.preventDefault();
+            hideSchedAlert();
+
+            const errors = SCHED_FIELD_IDS.map(id => {
+                schedTouched.add(id);
+                return { id, msg: validateSchedField(id) };
+            }).filter(x => x.msg);
+
+            if (errors.length) {
+                showSchedAlert(`Terdapat <strong>${errors.length} kolom</strong> yang belum valid. Silakan lengkapi data sesuai KTP.`);
+                $(errors[0].id).focus();
+                return;
+            }
+
+            const nama = Validators.clean($('schedRegName').value);
+            const nik = $('schedRegNik').value.trim();
+            const alamat = Validators.cleanMultiline($('schedRegAddress').value);
+            const sched = activeScheduleItem;
+
+            const waLines = [
+                '*PENDAFTARAN PELAYANAN KELILING (JEMPUT BOLA)*',
+                'LAYAR SULA - Kejaksaan Negeri Kepulauan Sula',
+                '',
+                `Nama Lengkap: ${nama}`,
+                `NIK: ${nik}`,
+                `Alamat Lengkap: ${alamat.replace(/\s*\n\s*/g, ', ')}`,
+                '',
+                '*Jadwal Kegiatan yang Dipilih:*',
+                `Wilayah: ${sched ? sched.district : '-'} (Pulau ${sched ? sched.island : '-'})`,
+                `Lokasi: ${sched ? sched.location : '-'}`,
+                `Waktu: ${sched ? `${sched.date}, ${sched.time}` : '-'}`,
+                `Waktu Daftar: ${nowWit()}`,
+                '',
+                '_Dikirim melalui Portal LAYAR SULA ke PTSP (0851-3879-3464)._'
+            ].join('\n');
+
+            const waUrl = `https://wa.me/${PTSP_WA}?text=${encodeURIComponent(waLines)}`;
+            $('schedWaManualLink').href = waUrl;
+
+            let opened = false;
+            try {
+                const win = window.open(waUrl, '_blank', 'noopener,noreferrer');
+                if (win) opened = true;
+            } catch (err) {}
+
+            if (opened) {
+                closeScheduleModal();
+            } else {
+                $('schedWaFallbackBox').classList.remove('hidden');
+                lucide.createIcons();
+            }
+        }
+
+        // Initialize Default View on Load
+        window.addEventListener('DOMContentLoaded', () => {
+            initFormValidation();
+            initTrackingExtras();
+            initScheduleFormValidation();
+            renderSchedules('all');
+        });
+    </script>
+</body>
+</html>
